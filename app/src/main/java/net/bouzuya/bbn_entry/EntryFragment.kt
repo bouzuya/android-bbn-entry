@@ -21,6 +21,10 @@ class EntryFragment : Fragment() {
         ).also { binding ->
             binding.lifecycleOwner = this
             binding.viewModel = viewModel
+
+            binding.entryFetchButton.setOnClickListener {
+                viewModel.fetch()
+            }
         }.root
     }
 }

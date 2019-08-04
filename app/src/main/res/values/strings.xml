@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BbnEntry</string>
     <string name="home_go_button_text">go to entry</string>
+    <string name="entry_fetch_button_text">Fetch</string>
 </resources>
