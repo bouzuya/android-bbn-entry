@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class EntryViewModel : ViewModel() {
+class EntryViewModel(private val entryRepository: EntryRepository) : ViewModel() {
     val name = "Entry"
 
     private val _title = MutableLiveData<String>()

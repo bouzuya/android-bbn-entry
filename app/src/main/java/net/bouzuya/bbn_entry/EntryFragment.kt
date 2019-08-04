@@ -10,7 +10,9 @@ import net.bouzuya.bbn_entry.databinding.EntryFragmentBinding
 
 
 class EntryFragment : Fragment() {
-    private val viewModel: EntryViewModel by viewModels()
+    private val viewModel: EntryViewModel by viewModels {
+        EntryViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
