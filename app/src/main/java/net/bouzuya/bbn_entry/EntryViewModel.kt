@@ -3,6 +3,8 @@ package net.bouzuya.bbn_entry
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class EntryViewModel(private val entryRepository: EntryRepository) : ViewModel() {
     val name = "Entry"
@@ -10,7 +12,7 @@ class EntryViewModel(private val entryRepository: EntryRepository) : ViewModel()
     private val _title = MutableLiveData<String>()
     val title: LiveData<String> = _title
 
-    fun fetch() {
-        _title.postValue("hello")
+    fun fetch() = viewModelScope.launch {
+        _title.postValue(entryRepository.getEntry())
     }
 }
