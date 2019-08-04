@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import org.threeten.bp.LocalDate
 
 class EntryViewModel(private val entryRepository: EntryRepository) : ViewModel() {
     val name = "Entry"
@@ -13,7 +14,8 @@ class EntryViewModel(private val entryRepository: EntryRepository) : ViewModel()
     val title: LiveData<String> = _title
 
     fun fetch() = viewModelScope.launch {
-        val entry = entryRepository.getEntry()
+        val yesterday = LocalDate.now().minusDays(1)
+        val entry = entryRepository.getEntry(yesterday)
         _title.postValue(entry.title)
     }
 }
