@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import net.bouzuya.bbn_entry.databinding.HomeFragmentBinding
 
 
@@ -22,8 +23,9 @@ class HomeFragment : Fragment() {
             binding.lifecycleOwner = this
             binding.viewModel = viewModel
 
-            binding.homeGoButton.setOnClickListener {
-                TODO("navigate to entry fragment")
+            binding.homeGoButton.setOnClickListener { view ->
+                val action = HomeFragmentDirections.actionHomeToEntry()
+                view.findNavController().navigate(action)
             }
         }.root
     }
