@@ -13,6 +13,7 @@ class EntryViewModel(private val entryRepository: EntryRepository) : ViewModel()
     val title: LiveData<String> = _title
 
     fun fetch() = viewModelScope.launch {
-        _title.postValue(entryRepository.getEntry())
+        val entry = entryRepository.getEntry()
+        _title.postValue(entry.title)
     }
 }
