@@ -2,10 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/home"
         android:name="net.bouzuya.bbn_entry.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="Home">
+        <action
+            android:id="@+id/action_home_to_entry"
+            app:destination="@id/entry" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/entry"
+        android:name="net.bouzuya.bbn_entry.EntryFragment"
+        android:label="Entry" />
 </navigation>
